@@ -14,11 +14,17 @@
 // const express = require('express')
 import express from 'express';
 import configViewEngine from './configs/viewEngine';
-import initWebRoute from './route/web';
+import  initWebRoute from './route/web';
+// import connection from './configs/connectDB';
 require('dotenv').config();
 const app = express()
 const port = process.env.PORT || 8080;
 // the method backup, if process.env.PORT is undefined, port will equals 8080
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+//line 24,25 of the code will allow developers to easily get date from the client side
 
 // set up viewEngine
 configViewEngine(app);
