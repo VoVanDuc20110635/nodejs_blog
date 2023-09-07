@@ -44,8 +44,13 @@
                             </td>
                             <td>
                                 <a href="/detail/user/<%= dataUser[i].id %>">Detail</a>
-                                <a>Edit</a>
-                                <a>Delete</a>
+                                <form action="/edit-user/<%= dataUser[i].id %>" method = "get">
+                                    <button>Edit</button>
+                                </form>
+                                <form action="/delete-user" method="post">
+                                    <input type="text" hidden name="userId" value="<%= dataUser[i].id %>">
+                                    <button type="submit">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         <%} %>
@@ -70,7 +75,7 @@
                 </div>
                 <div>
                     <label>Address: </label>
-                    <input type="text" name = "address">
+                    <input type="text" name="address">
                 </div>
                 <div>
                     <button type="submit" class="btn-submit">Submit</button>
